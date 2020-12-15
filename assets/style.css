@@ -1,0 +1,11 @@
+/* Sets everything to border-box */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    background: rgb(77, 77, 77);
+    padding: 1rem;
+}
