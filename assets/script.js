@@ -44,8 +44,8 @@ function getWeather(searchCity) {
                 var day = date.getDate().toString().padStart(2, '0');
                 var year = date.getFullYear();
                 console.log(month + '/' + day + '/' + year);
-                $('#date-0').text('(' + month + '/' + day + '/' + year + ')');
                 $('#date-' + i).text(month + '/' + day + '/' + year);
+                // $('#date-0').text('(' + month + '/' + day + '/' + year + ')');
                 
                 // Get weather icons
                 var iconID = response.daily[i].weather[0].icon
@@ -53,16 +53,31 @@ function getWeather(searchCity) {
                 
                 // Get temperature
                 var tempID = Math.floor(response.daily[i].temp.max);
-                $('#temp-0').text('Temperature: ' + tempID + ' °F')
                 $('#temp-' + i).text('Temp: ' + tempID + ' °F')
 
                 // Get humidity
                 var humidID = response.daily[i].humidity;
                 $('#humid-' + i).text('Humidity: ' + humidID + ' %')
-
-                
             }
-        })
+            //  Get windspeed
+            var windID = Math.floor(response.daily[0].wind_speed);
+            $('#wind-0').text('Wind Speed: ' + windID + ' MPH')
+
+            // Get uv index
+            var uvIndex = response.daily[0].uvi;
+            $('#uvi-0').html('<b>UV Index: <b>' + '<span id="uvi-badge" class="badge badge-light">' + uvIndex + '</span>');
+            if (uvIndex < 3) {
+                $('#uvi-badge').css('background', 'green')
+            } else if (uvIndex >= 3 && uvIndex < 6) {
+                $('#uvi-badge').css('background', 'yellow')
+            } else if (uvIndex >= 6 && uvIndex < 8) {
+                $('#uvi-badge').css('background', 'orange')
+            } else if (uvIndex >= 8 && uvIndex < 11) {
+                $('#uvi-badge').css('background', 'red')
+            } else {
+                $('#uvi-badge').css('background', 'violet')
+            }
+        });
     }); 
 }
 
