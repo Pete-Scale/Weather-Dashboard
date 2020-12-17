@@ -44,9 +44,13 @@ function getWeather(searchCity) {
                 var day = date.getDate().toString().padStart(2, '0');
                 var year = date.getFullYear();
                 console.log(month + '/' + day + '/' + year);
-                $('#date-' + i).text('(' + month + '/' + day + '/' + year + ')');
+                $('#date-0').text('(' + month + '/' + day + '/' + year + ')');
+                $('#date-' + i).text(month + '/' + day + '/' + year);
                 
-                // $('#weather-img-0').attr('src', 'https://openweather.org/img/w/' + )
+                // Get weather icons
+                var iconID = response.daily[i].weather[0].icon
+                $('#weather-img-' + i).attr('src', 'http://openweathermap.org/img/wn/' + iconID + '@2x.png');
+                
             }
         })
     }); 
