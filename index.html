@@ -16,7 +16,7 @@
         <!-- Row 1 -->
         <div class="row min-vh-100">
             <!-- Left column -->
-            <section id="search-container" class="col-md-4 bg-light">
+            <section id="search-container" class="col-md-4 bg-light mb-3">
                 <label for="search-input" class="fs-3 fw-bold pb-2">Search for a City:</label>
                 <div class="input-group mb-3">
                     <input type="text" id="search-input" class="form-control">
@@ -35,42 +35,48 @@
             </section>
             <!-- Right column -->
             <section id="forecast-container" class="col-md-8">
-                <div id="current-forecast" class="border">
-                    <div id="city-name-container" class="d-inline-flex ">
+                <div id="current-forecast" class="card mb-2">
+                    <div id="city-name-container" class="d-inline-flex ps-2">
                         <h2 id="city-name" class="fw-bold">Chicago</h2>
                         <img id="weather-img" alt="weather-image">
                     </div>
+                    <div class="card-text ps-2">
+                        <p id="temp-0">30°F</p>
+                        <p id="humid-0">45%</p>
+                        <p id="wind-0">18.00 MPH</p>
+                        <p id="uv-0">1.77</p>
+                    </div>
                 </div>
                 <!-- Row 2 -->
-                <div id="five-day-container" class="row">
-                    <h3 class="">5-Day Forecast:</h3>
+                <div id="five-day-container" class="row ms-1">
+                    <h3 class="ps-1"> 5-Day Forecast:</h3>
                     <!-- Row 3 -->
                     <div id="day-cards-container" class="row">
-                        <div id="day-1" class="card bg-primary text-light col-lg ms-1 mb-2">
+                        <div id="day-1" class="card bg-primary text-light col-lg mx-1 mb-2">
                             <h4 id="date-1" class="card-title">12/17/2020</h4>
                             <img id="weather-img-1" alt="weather-image-day-1">
                             <p id="temp-1" class="card-text">59°F</p>
                             <p id="humid-1" class="card-text">18%</p>
                         </div>
-                        <div id="day-2" class="card bg-primary text-light col-lg ms-1 mb-2">
+                        <div id="day-2" class="card bg-primary text-light col-lg mx-1 mb-2">
                             <h4 id="date-2" class="card-title">12/17/2020</h4>
                             <img id="weather-img-1" alt="weather-image-day-2">
                             <p id="temp-2" class="card-text">59°F</p>
                             <p id="humid-2" class="card-text">18%</p>
                         </div>
-                        <div id="day-3" class="card bg-primary text-light col-lg ms-1 mb-2">
+                        <div id="day-3" class="card bg-primary text-light col-lg mx-1 mb-2">
                             <h4 id="date-3" class="card-title">12/17/2020</h4>
                             <img id="weather-img-1" alt="weather-image-day-3">
                             <p id="temp-3" class="card-text">59°F</p>
                             <p id="humid-3" class="card-text">18%</p>
                         </div>
-                        <div id="day-4" class="card bg-primary text-light col-lg ms-1 mb-2">
+                        <div id="day-4" class="card bg-primary text-light col-lg mx-1 mb-2">
                             <h4 id="date-4" class="card-title">12/17/2020</h4>
                             <img id="weather-img-1" alt="weather-image-day-4">
                             <p id="temp-4" class="card-text">59°F</p>
                             <p id="humid-4" class="card-text">18%</p>
                         </div>
-                        <div id="day-5" class="card bg-primary text-light col-lg ms-1 mb-2">
+                        <div id="day-5" class="card bg-primary text-light col-lg mx-1 mb-2">
                             <h4 id="date-5" class="card-title">12/17/2020</h4>
                             <img id="weather-img-1" alt="weather-image-day-5">
                             <p id="temp-5" class="card-text">59°F</p>
