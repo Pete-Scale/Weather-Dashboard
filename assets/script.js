@@ -35,7 +35,7 @@ function getWeather(searchCity) {
             method: 'GET'
         }).then(function(response){
             console.log(response)
-            // Loop through daily array
+            // Loop through daily array to get today + 5 days
             for (var i = 0; i < response.daily.length - 2; i++) {
                 // Get time from unix time stamp and format to XX/XX/XXXX
                 var unixTimeStamp = response.daily[i].dt
@@ -53,7 +53,14 @@ function getWeather(searchCity) {
                 
                 // Get temperature
                 var tempID = Math.floor(response.daily[i].temp.max);
-                $('#temp-' + i).text(tempID + ' °F')
+                $('#temp-0').text('Temperature: ' + tempID + ' °F')
+                $('#temp-' + i).text('Temp: ' + tempID + ' °F')
+
+                // Get humidity
+                var humidID = response.daily[i].humidity;
+                $('#humid-' + i).text('Humidity: ' + humidID + ' %')
+
+                
             }
         })
     }); 
