@@ -1,5 +1,7 @@
 # Weather-Dashboard
 
+![Weather Dashboard Image](./assets/images/weather-dashboard.png)
+
 ## Credits
 
 https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
