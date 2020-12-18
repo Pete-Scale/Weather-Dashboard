@@ -1,6 +1,6 @@
-var cityName = $('#city-name')
 var searchCity;
 var queryURL_getCoords = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&appid=7eef78754aaa2ca60da79139ada4f6f4&q=';
+
 // Click listeners
 $('#search-button').on('click', search)
 
@@ -25,9 +25,9 @@ function getWeather(searchCity) {
     }).then(function(response) {
         lat = response.coord.lat;
         lon = response.coord.lon;
-        // city name
         console.log(response)
-        cityName.text(response.name)
+        // Get city name
+        $('#city-name').text(response.name)
         var queryURL = 'https://api.openweathermap.org/data/2.5/onecall?units=imperial&appid=7eef78754aaa2ca60da79139ada4f6f4&lat=' + lat + '&lon=' + lon;
         // Uses coordinates from weather ajax call
         $.ajax({
@@ -37,7 +37,7 @@ function getWeather(searchCity) {
             console.log(response)
             // Loop through daily array to get today + 5 days
             for (var i = 0; i < response.daily.length - 2; i++) {
-                // Get time from unix time stamp and format to XX/XX/XXXX
+                // Get date from unix time stamp and format to XX/XX/XXXX
                 var unixTimeStamp = response.daily[i].dt
                 var date = new Date(unixTimeStamp * 1000);
                 var month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -66,19 +66,24 @@ function getWeather(searchCity) {
             var uvIndex = response.daily[0].uvi;
             $('#uvi-0').html('<b>UV Index: <b>' + '<div id="uvi-badge" class="badge badge-light">' + uvIndex + '</div>');
             if (uvIndex < 3) {
-                $('#uvi-badge').css('background', 'green')
+                $('#uvi-badge').css('background', 'darkgreen')
             } else if (uvIndex >= 3 && uvIndex < 6) {
-                $('#uvi-badge').css('background', 'yellow')
+                $('#uvi-badge').css('background', 'gold')
             } else if (uvIndex >= 6 && uvIndex < 8) {
                 $('#uvi-badge').css('background', 'orange')
             } else if (uvIndex >= 8 && uvIndex < 11) {
                 $('#uvi-badge').css('background', 'red')
             } else {
-                $('#uvi-badge').css('background', 'violet')
+                $('#uvi-badge').css('background', 'darkviolet')
             }
         });
     }); 
 }
 
+// Need local storage
+
+// Need Clear History button
+
+// Need to hide containers when not being used
 
 
