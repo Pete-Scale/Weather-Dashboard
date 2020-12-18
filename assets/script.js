@@ -45,7 +45,6 @@ function getWeather(searchCity) {
                 var year = date.getFullYear();
                 console.log(month + '/' + day + '/' + year);
                 $('#date-' + i).text(month + '/' + day + '/' + year);
-                // $('#date-0').text('(' + month + '/' + day + '/' + year + ')');
                 
                 // Get weather icons
                 var iconID = response.daily[i].weather[0].icon
@@ -65,7 +64,7 @@ function getWeather(searchCity) {
 
             // Get uv index
             var uvIndex = response.daily[0].uvi;
-            $('#uvi-0').html('<b>UV Index: <b>' + '<span id="uvi-badge" class="badge badge-light">' + uvIndex + '</span>');
+            $('#uvi-0').html('<b>UV Index: <b>' + '<div id="uvi-badge" class="badge badge-light">' + uvIndex + '</div>');
             if (uvIndex < 3) {
                 $('#uvi-badge').css('background', 'green')
             } else if (uvIndex >= 3 && uvIndex < 6) {
